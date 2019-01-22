@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <title>ALV ONLINE</title>
+
+    <style>
+      #todo-item {
+        font-size: 2em;
+      }
+
+      .nav-wrapper{
+          background: rgb(11, 23, 184);
+      }
+
+      #add-to-do{
+background-color: green;
+      }
+
+      .paggination{
+        background: rgb(11, 23, 184);
+      }
+
+      .summit{
+  margin-left: 25%;
+  width: 50%;
+      }
+
+body{
+  background-image: url(../../IMAGES/1.png);
+  background-size: 200px;
+  margin-left: 100px;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+.logo{
+  width:100px;
+  height: 36px;
+}
+    </style>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+<!--NAV BAR-->
+<div class="navbar-fixed">       
+<nav>
+                <div class="nav-wrapper">
+                  <a href="#!" class="brand-logo"><i class="material-icons"><img class="logo" src="../../IMAGES/logo3.png"></i></a>
+                  <ul class="right hide-on-med-and-down">
+                    <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+                    <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+                    <li> <a class="btn-floating btn-large waves-effect waves-light red btn modal-trigger" href="#modal1"><i class="material-icons">add</i></a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+                      
+<!--POST AD-->
+ 
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+            <form>
+                    <span id="todo-item">
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                          <input id="name" type="text" class="validate" data-length="15" maxlength="15">
+                                          <label for="name">Nombre</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                          <input id="phone" type="tel" class="validate" data-length="10" maxlength="10">
+                                          <label for="phone">WhatsApp 10 Numueros</label>
+                                        </div>
+                                        <div class="row">
+                             <div class="input-field col s12">
+                                <input id="item" type="text" data-length="30" maxlength="30">
+                                <label for="item">¿Qué quieres vender?</label>
+                             </div>
+                            <div class="input-field col s12">
+                              <textarea id="description" class="materialize-textarea" data-length="240" maxlength="240"></textarea>
+                              <label for="description">¿Que nos quieres contar de lo que vendes?</label>
+                            </div>
+                            <div class="input-field col s6">
+                                    <select id="category">
+                                      <option value="" disabled selected>Selecciona una categoria</option>
+                                      <option value="../../IMAGES/videojuegos.png">Videojuegos</option>
+                                      <option value="../../IMAGES/tecnologia.png">Tecnologia</option>
+                                      <option value="../../IMAGES/hogar.png">Hogar</option>
+                                      <option value="../../IMAGES/servicios.png">Servicios</option>
+                                      <option value="../../IMAGES/otros.png">Otros</option>
+                                    </select>
+                                    <label>¿Qué tipo de venta es?</label>
+                             </div>
+                             <div class="input-field col s6">
+                                    <select id="location">
+                                      <option value="" disabled selected>Selecciona tu ubicacion</option>
+                                      <option value="CDMX">Ciudad de México</option>
+                                      <option value="EDOMX">Estado de México</option>
+                                      <option value="Toluca">Toluca</option>
+                                      <option value="Queretaro">Queretaro</option>
+                                      <option value="Otro">Otro</option>
+                                    </select>
+                                    <label>¿Donde lo vendes?</label>
+                             </div>
+                             <div class="row">
+                                    <form class="col s6">
+                                      <div class="row">
+                                        <div class="input-field col s6">
+                                          <textarea id="price" class="materialize-textarea" data-length="10" maxlength="10"></textarea>
+                                          <label for="price">Precio</label>
+                                        </div>
+
+                                        <div class="col s6">
+                                                <button id="add-to-do" class="btn waves-effect waves-light summit" type="submit" name="action">Publicalo
+                                                        <i class="material-icons right">send</i>
+                                                </button>
+
+                                        </div>
+                                        
+                                      </div>
+                                    </form>
+                                  </div>
+                        </div>
+                    <div>
+                
+                     </div>
+                
+                    </span>
+    </div>
+    </div>
+</div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <a id="number" class="waves-effect waves-light btn-large">0 Articulos en venta</a>
+  </div>
+    <div id="to-dos" class="row">
+
+<!--AD1-->
+          <div class="card col s3 hoverable">
+                 <div class="card-image waves-effect waves-block waves-light">
+                 <img class="activator" src="../../IMAGES/videojuegos.png">
+                </div>
+                 <div class="card-content">
+                 <span class="card-title activator grey-text text-darken-4">Televison 27" Phillips<i class="material-icons right">more_vert</i></span>
+                 <p><a href="#">Telefono</a></p>
+                 </div>
+                 <div class="card-reveal">
+                 <span class="card-title grey-text text-darken-4">Television 27" Phillips<i class="material-icons right">close</i></span>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde placeat porro beatae dicta ex consequatur mollitia pariatur nihil excepturi libero esse omnis perferendis optio veniam cum incidunt, voluptas eaque molestias.</p>
+                 <p>$ 7,000 MXN - CDMX - Electronicos</p>
+                </div>
+           </div>
+<!--space-->
+           <div class="col">
+            </div>
+<!--AD2-->
+       <div class="card col s3 hoverable">
+              <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="../../IMAGES/videojuegos.png">
+             </div>
+              <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Televison 27" Phillips<i class="material-icons right">more_vert</i></span>
+              <p><a href="#">Telefono</a></p>
+              </div>
+              <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Television 27" Phillips<i class="material-icons right">close</i></span>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde placeat porro beatae dicta ex consequatur mollitia pariatur nihil excepturi libero esse omnis perferendis optio veniam cum incidunt, voluptas eaque molestias.</p>
+              <p>$ 7,000 MXN - CDMX - Electronicos</p>
+             </div>
+        </div>
+<!--space-->
+<div class="col">
+  </div>
+<!--AD2-->
+<div class="card col s3 hoverable">
+    <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="../../IMAGES/videojuegos.png">
+   </div>
+    <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">Televison 27" Phillips<i class="material-icons right">more_vert</i></span>
+    <p><a href="#">Telefono</a></p>
+    </div>
+    <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Television 27" Phillips<i class="material-icons right">close</i></span>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde placeat porro beatae dicta ex consequatur mollitia pariatur nihil excepturi libero esse omnis perferendis optio veniam cum incidunt, voluptas eaque molestias.</p>
+    <p>$ 7,000 MXN - CDMX - Electronicos</p>
+   </div>
+</div>
+
+<!--space-->
+<div class="col">
+  </div>
+<!--AD2-->
+<div class="card col s3 hoverable">
+    <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="../../IMAGES/videojuegos.png">
+   </div>
+    <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">Televison 27" Phillips<i class="material-icons right">more_vert</i></span>
+    <p><a href="#">Telefono</a></p>
+    </div>
+    <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Television 27" Phillips<i class="material-icons right">close</i></span>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde placeat porro beatae dicta ex consequatur mollitia pariatur nihil excepturi libero esse omnis perferendis optio veniam cum incidunt, voluptas eaque molestias.</p>
+    <p>$ 7,000 MXN - CDMX - Electronicos</p>
+   </div>
+</div>
+
+<!--space-->
+<div class="col">
+  </div>
+
+
+
+
+
+       </div>
+    </div>
+      
+
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Script -->
+    <ul class="pagination">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+          </ul>
+
+    </div>
+    <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text"><img class="logo" src="../../IMAGES/logo3.png"></h5>
+              <p class="grey-text text-lighten-4">Pagina creada por Luis Cervantes y Adal Loya.</p>
+            </div>
+            
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2019 Derechos Reservados.
+          </div>
+        </div>
+      </footer>
+    <script>
+    $(document).ready(function() {
+    $('input#name, input#phone, input#item, input#price, input#description').characterCounter();
+
+     document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
+  });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.chips');
+    var instances = M.Chips.init(elems, options);
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+          
+  // Or with jQuery
+
+    $('select').formSelect();
+
+
+    // Create an initial toDoCount variable
+    var toDoCount = 0;
+
+    //  On Click event associated with the add-to-do function
+    $("#add-to-do").on("click", function(event) {
+      event.preventDefault();
+
+      // Get the to-do "value" from the textbox and store it a variable
+      var name= $("#name").val().trim();
+      var phone= $("#phone").val().trim();
+      var item= $("#item").val().trim();
+      var description= $("#description").val().trim();
+      var price= $("#price").val().trim();
+      var category= $('select#category').val();
+      var location= $('select#location').val();
+
+      // Create a new variable that will hold a "<p>" tag.
+      // Then give it an ID in the following form:
+      // "item-4" or "item-3" or "item-99", where the number is equal to toDoCount.
+      // Then append the to-do "value" as text to this <p> element.
+      var toDoItem = $("<div>");
+      var imagecontainer= $("<div>");
+      var image= $("<img>");
+      var titlecontainer= $("<div>");
+      var title= $("<span>");
+      var more= $("<i>");
+      var linkcontainer= $("<p>");
+      var link=$("<a>");
+      var descriptioncontainer= $("<div>");
+      var descriptiontitle= $("<span>");
+      var close =$("<i>");
+      var descriptiontext=$("<p>");
+      var space=$("<div>");
+
+      toDoItem.attr("id", "item-" + toDoCount);
+      toDoItem.attr("class", "card col s3 hoverable");
+      imagecontainer.attr("class", "card-image waves-effect waves-block waves-light");
+      image.attr("class","activator");
+      image.attr("src", category);
+      titlecontainer.attr("class","card-content");
+      title.attr("class","card-title activator grey-text text-darken-4");
+      more.attr("class", "material-icons right");
+      link.attr("href","#");
+      descriptioncontainer.attr("class", "card-reveal");
+      descriptiontitle.attr("class","card-title grey-text text-darken-4");
+      close.attr("class","material-icons right");
+      space.attr("class","col")
+
+// AD STRUCTURE
+toDoItem.append(imagecontainer);
+toDoItem.append(titlecontainer);
+toDoItem.append(descriptioncontainer);
+
+// IMAGE CONTAINER
+imagecontainer.append(image);
+// TITLE CONTAINER
+titlecontainer.append(title);
+titlecontainer.append(more);
+titlecontainer.append(linkcontainer);
+
+// LINK CONTAINER
+linkcontainer.append(link);
+
+// DESCRIPTION CONTAINER
+descriptioncontainer.append(descriptiontitle)
+descriptioncontainer.append(descriptiontext)
+
+// DESCRIPTION TEXT
+descriptiontitle.append(item)
+descriptiontitle.append(close)
+descriptiontext.append(description)
+descriptiontext.append("<hr>")
+descriptiontext.append(price+ "-" + location)
+
+// DATA INTO CARD
+title.append(item);
+link.append(phone);
+more.append("more_vert")
+close.append("close")
+
+//  <div class="card col s3">
+//             <div class="card-image waves-effect waves-block waves-light">
+//               <img class="activator" src="../../IMAGES/office.jpg">
+//             </div>
+//             <div class="card-content">
+//               <span class="card-title activator grey-text text-darken-4">Televison 27" Phillips<i class="material-icons right">more_vert</i></span>
+//               <p><a href="#">Telefono</a></p>
+//             </div>
+//             <div class="card-reveal">
+//               <span class="card-title grey-text text-darken-4">Television 27" Phillips<i class="material-icons right">close</i></span>
+//               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde placeat porro beatae dicta ex consequatur mollitia pariatur nihil excepturi libero esse omnis perferendis optio veniam cum incidunt, voluptas eaque molestias.</p>
+//               <p>$ 7,000 MXN - CDMX - Electronicos</p>
+//             </div>
+//           </div>
+//           </div>
+
+      // Create a button with unique identifiers based on what number it is in the list. Again use jQuery to do this.
+      // Give your button a data attribute called data-to-do and a class called "checkbox".
+      // Lastly append the letter X inside.
+
+      // var toDoClose = $("<button>");
+
+      // toDoClose.attr("data-to-do", toDoCount);
+      // toDoClose.addClass("checkbox");
+      // toDoClose.append("✓");
+
+      // Append the button to the to do item
+      // toDoItem = toDoItem.prepend(toDoClose);
+
+      // Add the button and to do item to the to-dos div
+      $("#to-dos").append(toDoItem);
+      $("#to-dos").append(space)
+
+      // Clear the textbox when done
+      $("#to-do").val("");
+      $("#to-do2").val("");
+      $("#name").val("");
+      $("#phone").val("");
+      $("#item").val("");
+      $("#description").val("");
+      $("#price").val("");
+      $("#category").val("");
+      $("#location").val("");
+      // Add to the toDoCount
+      toDoCount++;
+      $("#number").html(toDoCount + " "+ "Articulos en venta");
+    });
+    // 
+    // When a user clicks a check box then delete the specific content
+    // (NOTE: Pay attention to the unusual syntax here for the click event.
+    // Because we are creating click events on "dynamic" content, we can't just use the usual "on" "click" syntax.)
+    $(document.body).on("click", ".checkbox", function() {
+
+      // Get the number of the button from its data attribute and hold in a variable called  toDoNumber.
+      var toDoNumber = $(this).attr("data-to-do");
+
+      // Select and Remove the specific <p> element that previously held the to do item number.
+      $("#item-" + toDoNumber).remove();
+    });
+});
+
+    </script>
+<script type="text/javascript" src="../../js/materialize.min.js"></script>
+  </body>
+
+</html>
