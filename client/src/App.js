@@ -7,14 +7,15 @@ import React from "react";
 import Card from "./components/Card";
 import Nav from "./components/Nav";
 import Form from "./components/Form";
+import Footer from "./components/Footer"
 
 function App() {
   return (
     <div>
-      Hola
       <Nav/>
       <Card title="Super TV"/>
       <Form/>
+      <Footer/>
     </div>
   );
 }
