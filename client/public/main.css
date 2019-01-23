@@ -1,0 +1,40 @@
+
+#todo-item {
+  font-size: 2em;
+}
+
+.nav-wrapper{
+    background: rgb(11, 23, 184);
+}
+
+#add-to-do{
+background-color: green;
+}
+
+.paggination{
+  background: rgb(11, 23, 184);
+}
+
+.summit{
+margin-left: 25%;
+width: 50%;
+}
+
+body{
+background-image: url(../../IMAGES/1.png);
+background-size: 200px;
+}
+body {
+display: flex;
+min-height: 100vh;
+flex-direction: column;
+}
+
+main {
+flex: 1 0 auto;
+}
+
+.logo{
+width:100px;
+height: 36px;
+}

@@ -3,11 +3,17 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="#000000">
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/journal/bootstrap.min.css" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="main.css">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ALV Online</title>
 </head>
 
@@ -16,6 +22,179 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <div id="root"></div>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function() {
+    $('input#name, input#phone, input#item, input#price, input#description').characterCounter();
+
+     document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
+  });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.chips');
+    var instances = M.Chips.init(elems, options);
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+          
+  // Or with jQuery
+
+    $('select').formSelect();
+
+
+    // Create an initial toDoCount variable
+    var toDoCount = 0;
+
+    //  On Click event associated with the add-to-do function
+    $("#add-to-do").on("click", function(event) {
+      event.preventDefault();
+
+      // Get the to-do "value" from the textbox and store it a variable
+      var name= $("#name").val().trim();
+      var phone= $("#phone").val().trim();
+      var item= $("#item").val().trim();
+      var description= $("#description").val().trim();
+      var price= $("#price").val().trim();
+      var category= $('select#category').val();
+      var location= $('select#location').val();
+
+      // Create a new variable that will hold a "<p>" tag.
+      // Then give it an ID in the following form:
+      // "item-4" or "item-3" or "item-99", where the number is equal to toDoCount.
+      // Then append the to-do "value" as text to this <p> element.
+      var toDoItem = $("<div>");
+      var imagecontainer= $("<div>");
+      var image= $("<img>");
+      var titlecontainer= $("<div>");
+      var title= $("<span>");
+      var more= $("<i>");
+      var linkcontainer= $("<p>");
+      var link=$("<a>");
+      var descriptioncontainer= $("<div>");
+      var descriptiontitle= $("<span>");
+      var close =$("<i>");
+      var descriptiontext=$("<p>");
+      var space=$("<div>");
+
+      toDoItem.attr("id", "item-" + toDoCount);
+      toDoItem.attr("class", "card col s3 hoverable");
+      imagecontainer.attr("class", "card-image waves-effect waves-block waves-light");
+      image.attr("class","activator");
+      image.attr("src", category);
+      titlecontainer.attr("class","card-content");
+      title.attr("class","card-title activator grey-text text-darken-4");
+      more.attr("class", "material-icons right");
+      link.attr("href","#");
+      descriptioncontainer.attr("class", "card-reveal");
+      descriptiontitle.attr("class","card-title grey-text text-darken-4");
+      close.attr("class","material-icons right");
+      space.attr("class","col")
+
+// AD STRUCTURE
+toDoItem.append(imagecontainer);
+toDoItem.append(titlecontainer);
+toDoItem.append(descriptioncontainer);
+
+// IMAGE CONTAINER
+imagecontainer.append(image);
+// TITLE CONTAINER
+titlecontainer.append(title);
+titlecontainer.append(more);
+titlecontainer.append(linkcontainer);
+
+// LINK CONTAINER
+linkcontainer.append(link);
+
+// DESCRIPTION CONTAINER
+descriptioncontainer.append(descriptiontitle)
+descriptioncontainer.append(descriptiontext)
+
+// DESCRIPTION TEXT
+descriptiontitle.append(item)
+descriptiontitle.append(close)
+descriptiontext.append(description)
+descriptiontext.append("<hr>")
+descriptiontext.append(price+ "-" + location)
+
+// DATA INTO CARD
+title.append(item);
+link.append(phone);
+more.append("more_vert")
+close.append("close")
+
+//  <div class="card col s3">
+//             <div class="card-image waves-effect waves-block waves-light">
+//               <img class="activator" src="../../IMAGES/office.jpg">
+//             </div>
+//             <div class="card-content">
+//               <span class="card-title activator grey-text text-darken-4">Televison 27" Phillips<i class="material-icons right">more_vert</i></span>
+//               <p><a href="#">Telefono</a></p>
+//             </div>
+//             <div class="card-reveal">
+//               <span class="card-title grey-text text-darken-4">Television 27" Phillips<i class="material-icons right">close</i></span>
+//               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde placeat porro beatae dicta ex consequatur mollitia pariatur nihil excepturi libero esse omnis perferendis optio veniam cum incidunt, voluptas eaque molestias.</p>
+//               <p>$ 7,000 MXN - CDMX - Electronicos</p>
+//             </div>
+//           </div>
+//           </div>
+
+      // Create a button with unique identifiers based on what number it is in the list. Again use jQuery to do this.
+      // Give your button a data attribute called data-to-do and a class called "checkbox".
+      // Lastly append the letter X inside.
+
+      // var toDoClose = $("<button>");
+
+      // toDoClose.attr("data-to-do", toDoCount);
+      // toDoClose.addClass("checkbox");
+      // toDoClose.append("✓");
+
+      // Append the button to the to do item
+      // toDoItem = toDoItem.prepend(toDoClose);
+
+      // Add the button and to do item to the to-dos div
+      $("#to-dos").append(toDoItem);
+      $("#to-dos").append(space)
+
+      // Clear the textbox when done
+      $("#to-do").val("");
+      $("#to-do2").val("");
+      $("#name").val("");
+      $("#phone").val("");
+      $("#item").val("");
+      $("#description").val("");
+      $("#price").val("");
+      $("#category").val("");
+      $("#location").val("");
+      // Add to the toDoCount
+      toDoCount++;
+      $("#number").html(toDoCount + " "+ "Articulos en venta");
+    });
+    // 
+    // When a user clicks a check box then delete the specific content
+    // (NOTE: Pay attention to the unusual syntax here for the click event.
+    // Because we are creating click events on "dynamic" content, we can't just use the usual "on" "click" syntax.)
+    $(document.body).on("click", ".checkbox", function() {
+
+      // Get the number of the button from its data attribute and hold in a variable called  toDoNumber.
+      var toDoNumber = $(this).attr("data-to-do");
+
+      // Select and Remove the specific <p> element that previously held the to do item number.
+      $("#item-" + toDoNumber).remove();
+    });
+});
+
+    </script>
 </body>
 
 </html>
