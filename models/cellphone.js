@@ -7,7 +7,13 @@ const cellphoneSchema = new Schema({
     tags: [String],
     price: { type: Number, required: true },
     updated: { type: Date, default: Date.now },
-    features: {}
+    features: { size: null,
+        RAM: null,
+        OS: "",
+        frontCamera: null,
+        backCamera: null,
+        others: ""
+    }
 });
 
 const cellphone = mongoose.model("CellPhone", cellphoneSchema);
