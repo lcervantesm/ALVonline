@@ -106,7 +106,6 @@ $("#add-to-do").on("click", function(event) {
         dateposted:output,
         id:toDoCount,
         dateAdded: firebase.database.ServerValue.TIMESTAMP,
-       
 
       });
 // Clear the textbox when done
@@ -212,12 +211,6 @@ $("#new-register").addClass("disabled")
     console.log("Errors handled: " + errorObject.code);
   });
 
-  dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
-    // Change the HTML to reflect
-    $("#name-display").text(snapshot.val().name);
-    $("#email-display").text(snapshot.val().email);
-    $("#age-display").text(snapshot.val().age);
-    $("#comment-display").text(snapshot.val().comment);
-  });
+
 
 });
