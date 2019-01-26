@@ -13,7 +13,6 @@ import Form from "./components/Form";
 import Registration from "./components/Registration";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
-import FileUpload from "./components/FileUpload";
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
       <Registration/>
       <Login/>
       <Footer/>
-      <FileUpload/>
     </div>
   );
 }
