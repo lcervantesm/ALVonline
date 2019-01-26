@@ -169,6 +169,8 @@ $("#new-register").on("click", function(event) {
     var useraviso= $('#aviso').val();
     var userid= 1;
 
+    console.log("hey");
+
     database.ref("users").push({
      username: username,
       userphone: userphone,
@@ -193,20 +195,7 @@ $("#new-register").addClass("disabled")
 
     
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
     // Handle the errors
   }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
