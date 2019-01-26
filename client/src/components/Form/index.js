@@ -8,13 +8,15 @@ function Form() {
     <div className="modal-content">
             <span id="todo-item">
             <div className="row">
+            <blockquote>
+      <h4>Publica tu anuncío</h4>
+    </blockquote>
              <form className="col s12">
-              
-                                        <div className="input-field col s6">
+                                        <div className="input-field col s12">
                                           <input id="name" type="text" className="validate" data-length="15" maxlength="15"></input>
                                           <label for="name">Nombre</label>
                                         </div>
-                                        <div class="input-field col s6">
+                                        <div class="input-field col s12">
                                           <input id="phone" type="tel" className="validate" data-length="10" maxlength="10"></input>
                                           <label for="phone">WhatsApp 10 Numeros</label>
                                         </div>
@@ -30,7 +32,7 @@ function Form() {
                               <textarea id="description" className="materialize-textarea" data-length="240" maxlength="240"></textarea>
                               <label for="description">¿Que nos cuentas de lo que vendes?</label>
                             </div>
-                               <div className="input-field col s6">
+                               <div className="input-field col s12">
                                     <select id="category">
                                       <option value="" defaultValue>Selecciona una categoria</option>
                                       <option value="../../IMAGES/videojuegos.png">Videojuegos</option>
@@ -41,7 +43,7 @@ function Form() {
                                     </select>
                                     <label>¿Qué tipo de venta es?</label>
                              </div>
-                             <div className="input-field col s6">
+                             <div className="input-field col s12">
                                     <select id="location">
                                       <option value="" defaultValue>Selecciona tu ubicacion</option>
                                       <option value="CDMX">Ciudad de México</option>
@@ -52,12 +54,12 @@ function Form() {
                                     </select>
                                     <label>¿Donde lo vendes?</label>
                              </div>
-                                        <div className="input-field col s6">
+                                        <div className="input-field col s12">
                                           <textarea id="price" type="number" class="materialize-textarea" data-length="10" maxlength="10"></textarea>
                                           <label for="price">Precio</label>
                                         </div>
 
-                                        <div className="col s6">
+                                        <div className="col s12">
                                                 <button id="add-to-do" className="modal-close btn waves-effect waves-light summit disabled" type="submit" name="action">Publicalo
                                                         <i className="material-icons right">send</i>
                                                 </button>

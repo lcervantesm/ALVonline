@@ -35,11 +35,43 @@ flex: 1 0 auto;
 }
 
 .logo{
-width:100px;
+width:180px;
 height: 36px;
+margin-left: 10px;
+margin-top: 15px;
 }
-
+.login {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #fafafa;
+  padding: 0;
+  max-height: 70%;
+  width: 30%;
+  margin: auto;
+  overflow-y: auto;
+  border-radius: 2px;
+  will-change: top, opacity;
+}
 .contactar{
   color: white;
   font-weight: bold;
+}
+
+@media (max-width: 990px) {
+  .resizeimg {
+    height: auto;
+  }
+  .login {
+    width: 100%;
+    max-height: 100%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .resizeimg {
+    width: auto;
+    height: 350px;
+  }
 }
