@@ -19,12 +19,16 @@ function Form() {
                                           <label for="phone">WhatsApp 10 Numeros</label>
                                         </div>
                              <div className="input-field col s12">
+                                <input id="email" type="email" data-length="30" maxlength="30"></input>
+                                <label for="email">Email</label>
+                             </div>
+                             <div className="input-field col s12">
                                 <input id="item" type="text" data-length="30" maxlength="30"></input>
                                 <label for="item">¿Qué quieres vender?</label>
                              </div>
                             <div className="input-field col s12">
                               <textarea id="description" className="materialize-textarea" data-length="240" maxlength="240"></textarea>
-                              <label for="description">¿Que nos quieres contar de lo que vendes?</label>
+                              <label for="description">¿Que nos cuentas de lo que vendes?</label>
                             </div>
                                <div className="input-field col s6">
                                     <select id="category">
@@ -49,7 +53,7 @@ function Form() {
                                     <label>¿Donde lo vendes?</label>
                              </div>
                                         <div className="input-field col s6">
-                                          <textarea id="price" class="materialize-textarea" data-length="10" maxlength="10"></textarea>
+                                          <textarea id="price" type="number" class="materialize-textarea" data-length="10" maxlength="10"></textarea>
                                           <label for="price">Precio</label>
                                         </div>
 
