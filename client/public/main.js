@@ -35,6 +35,7 @@ $(document).ready(function() {
 
 var connectionsRef = database.ref("/connections");
 var connectedRef = database.ref(".info/connected");
+var adnumber = database.ref("/ads");
 
 connectedRef.on("value", function(snap) {
   if (snap.val()) {
@@ -46,6 +47,12 @@ connectedRef.on("value", function(snap) {
 connectionsRef.on("value", function(snap) {
   $("#number1").text(snap.numChildren());
   $("#number1").append(""+ " "+"Personas comprando");
+});
+
+adnumber.on("value",function(snap) {
+$("#number").text(snap.numChildren());
+$("#number").append(""+ " "+"Articulos en venta");
+toDoCount= snap.numChildren();
 });
 
  // ON BUTTON SELECT FORM-----------------------------------------------------------------
@@ -85,6 +92,8 @@ $('select').formSelect();
 $("#add-to-do").on("click", function(event) {
       event.preventDefault();
 
+      toDoCount++;
+
       var name= $("#name").val().trim();
       var phone= $("#phone").val().trim();
       var email= $("#email").val().trim();
@@ -120,7 +129,6 @@ $('#category').addClass();
 $("#location").addClass();
 $("#email").val("");
 // Add to the toDoCount
-toDoCount++;
 $("#add-to-do").addClass("disabled")
 
       
@@ -156,6 +164,7 @@ $("#new-register").on("click", function(event) {
 $("#username").val("");
 $("#userphone").val("");
 $("#useremail").val("");
+$("#userpassword").val("");
 $("#phone").val("");
 $("#item").val("");
 $("#userlocation").val("");
@@ -182,7 +191,7 @@ $("#new-register").addClass("disabled")
     $("#to-dos").append(
         "<div id="+childSnapshot.val().id+" " + "class='card col s12 m4 l4 xl3 hoverable card small'>"+
         "<div class='card-image waves-effect waves-block waves-light'>" +
-        "<img class='activator center-align responsive-img' src="+"'"+childSnapshot.val().category+"'"+"></img>"+
+        "<img class='activator center-align' src="+"'"+childSnapshot.val().category+"'"+"></img>"+
         "</div>"+
         "<div class='card-content'>"+
         "<span class='card-title activator grey-text text-darken-4'flow-text>"+childSnapshot.val().item+"</span><i class='material-icons right'>more_vert</i>"+
@@ -195,14 +204,17 @@ $("#new-register").addClass("disabled")
         "</div>"+
         "</div>"
     
-);
-
-  
+);  
     // Handle the errors
   }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
   });
+ ///console log users
+ database.ref("users").on("value", function(childSnapshot) {
+     console.log(childSnapshot.val())
 
-
+}, function(errorObject) {
+  console.log("Errors handled: " + errorObject.code);
+});
 
 });
