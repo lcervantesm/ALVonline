@@ -25,6 +25,7 @@ $(document).ready(function() {
 
   var month = d.getMonth()+1;
   var day = d.getDate();
+  var time=d.getTime();
   
   var output = (day<10 ? '0' : '') + day + '/' +
       (month<10 ? '0' : '') + month + '/' +
@@ -49,6 +50,7 @@ connectionsRef.on("value", function(snap) {
 
  // ON BUTTON SELECT FORM-----------------------------------------------------------------
  $('input#name, input#phone, input#item, input#price, input#description').characterCounter();
+ $('input#username, input#userphone, input#useremail, input#userlocation, input#userpassword').characterCounter();
 
  document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('select');
@@ -115,8 +117,8 @@ $("#phone").val("");
 $("#item").val("");
 $("#description").val("");
 $("#price").val("");
-$('#category option:eq(0)').attr('selected','selected');
-$("#location").val("defaultValue");
+$('#category').addClass();
+$("#location").addClass();
 $("#email").val("");
 // Add to the toDoCount
 toDoCount++;
@@ -124,6 +126,7 @@ $("#add-to-do").addClass("disabled")
 
       
     });
+
 //DELETE------------------------------------------------------------------------------------------------------------------------ 
     // When a user clicks a check box then delete the specific content
     // (NOTE: Pay attention to the unusual syntax here for the click event.
@@ -138,21 +141,71 @@ $("#add-to-do").addClass("disabled")
     $("#number").html(childSnapshot.val().id+ " "+ "Articulos en venta");
     // full list of items to the well
     $("#to-dos").append(
-        "<div id="+childSnapshot.val().id+" " + "class='card col s3 hoverable'>"+
+        "<div id="+childSnapshot.val().id+" " + "class='card col s12 m4 l4 xl3 hoverable card small'>"+
         "<div class='card-image waves-effect waves-block waves-light'>" +
-        "<img class='activator' src="+"'"+childSnapshot.val().category+"'"+"></img>"+
+        "<img class='activator center-align responsive-img' src="+"'"+childSnapshot.val().category+"'"+"></img>"+
         "</div>"+
         "<div class='card-content'>"+
-        "<span class='card-title activator grey-text text-darken-4'>"+childSnapshot.val().item+"</span><i class='material-icons right'>more_vert</i>"+
-        "<p><a href="+"'"+childSnapshot.val().phone+"'"+ "class='waves-effect waves-light btn-small contactar'>Contactar</a></p>"+
+        "<span class='card-title activator grey-text text-darken-4'flow-text>"+childSnapshot.val().item+"</span><i class='material-icons right'>more_vert</i>"+
+        "<p><a href="+"'"+childSnapshot.val().phone+"'"+ "class='waves-effect waves-light btn-small contactar flow-text'>Contactar</a></p>"+
         "</div>"+
         "<div class='card-reveal'>"+
-        "<span class='card-title grey-text text-darken-4'>"+childSnapshot.val().item+"<i class='material-icons right'>close</i></span>"+
-        "<p>"+childSnapshot.val().description+"</p>"+
-        "<p>$ "+ childSnapshot.val().price +" MXN - "+childSnapshot.val().location+" - ID:"+childSnapshot.val().id+"</p>"+
+        "<span class='card-title grey-text text-darken-4 flow-text'>"+childSnapshot.val().item+"<i class='material-icons right'>close</i></span>"+
+        "<p class='flow-text'>"+childSnapshot.val().description+"</p>"+
+        "<p class='flow-text'>$ "+ childSnapshot.val().price +" MXN - "+childSnapshot.val().location+" - ID:"+childSnapshot.val().id+"</p>"+
         "</div>"+
-        "</div>"+ "<div class='col'>"+"</div>"
+        "</div>"
+    
 );
+
+$("#new-register").on("click", function(event) {
+    event.preventDefault();
+
+    var username= $("#username").val().trim();
+    var userphone= $("#userphone").val().trim();
+    var useremail= $("#useremail").val().trim();
+    var userlocation= $('select#userlocation').val();
+    var userpassword= $('#userpassword').val();
+    var useraviso= $('#aviso').val();
+    var userid= 1;
+
+    database.ref("users").push({
+     username: username,
+      userphone: userphone,
+      useremail: useremail,
+      userlocation:userlocation,
+      userpassword:userpassword,
+      useraviso:useraviso,
+      dateposted:output,
+      userid:userid,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP,
+    });
+// Clear the textbox when done
+$("#username").val("");
+$("#userphone").val("");
+$("#useremail").val("");
+$("#phone").val("");
+$("#item").val("");
+$("#userlocation").val("");
+
+
+$("#new-register").addClass("disabled")
+
+    
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Handle the errors
   }, function(errorObject) {

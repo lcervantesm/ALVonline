@@ -11,10 +11,14 @@ class Card extends Component {
 render() {
 
     return (
-        <div className="container">
+<div className="container">
   <div className="row">
-      <a id="number" className="waves-effect waves-light btn-large">0 Articulos en venta</a>
-      <a id="number1" className="waves-effect waves-light btn-large watchers"></a>
+     <div className="col s6 m6">
+       <a id="number" className="waves-effect waves-light btn-large hide-on-small-only">0 Articulos en venta</a>
+     </div>
+     <div className="col s6 m6">
+       <a id="number1" className="waves-effect waves-light btn-large watchers hide-on-small-only"></a>
+     </div>
   </div>
     <div id="to-dos" className="row"></div>
         {/* <div className="card col s3 hoverable">
@@ -30,11 +34,11 @@ render() {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde placeat porro beatae dicta ex consequatur mollitia pariatur nihil excepturi libero esse omnis perferendis optio veniam cum incidunt, voluptas eaque molestias.</p>
         <p>$ 7,000 MXN - CDMX - Electronicos</p>
         </div>
-        </div> */} */}
+        </div> */}
 
         
         
-        </div>
+</div>
     );
 }
 

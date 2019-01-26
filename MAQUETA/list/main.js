@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems, options);
+    var elems = document.querySelectorAll('.modal2');
+    var instances = M.Modal.init(elems, options);
   });
   // Initialize Firebase
   var config = {
@@ -67,10 +69,12 @@ connectionsRef.on("value", function(snap) {
 
   $(document).ready(function(){
     $('.modal').modal();
+    $('.modal2').modal();
+    $('.modal3').modal();
     validate();
     $('#name, #phone, #description, #category, #location, #price, #item').change(validate);
   });
-
+  $('.modal2').modal();
 function validate(){
     if ($('#name').val().length   >   0   &&
         $('#phone').val().length  >   0   &&
@@ -166,7 +170,7 @@ function validate(){
       var space=$("<div>");
 
       toDoItem.attr("id", "item-" + toDoCount);
-      toDoItem.attr("class", "card col s3 hoverable");
+      toDoItem.attr("class", "card col s12 hoverable");
       imagecontainer.attr("class", "card-image waves-effect waves-block waves-light");
       image.attr("class","activator");
       image.attr("src", childSnapshot.val().category);
@@ -247,6 +251,8 @@ close.append("close")
     }, function(errorObject) {
         console.log("Errors handled: " + errorObject.code);
     });
+
+    
     // 
     // When a user clicks a check box then delete the specific content
     // (NOTE: Pay attention to the unusual syntax here for the click event.
