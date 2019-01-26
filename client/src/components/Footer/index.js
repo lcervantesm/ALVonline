@@ -2,11 +2,11 @@ import React from "react";
 
 function footer() {
     return (
-<footer class="page-footer">
+<footer className="page-footer">
         <div className="container">
           <div className="row">
             <div className="col l6 s12">
-              <h5 className="white-text"><img className="logo" src="../../IMAGES/logo3.png"></img></h5>
+              <h5 className="white-text"><img className="logo" alt="logo" src="../../IMAGES/logo3.png"></img></h5>
               <p className="grey-text text-lighten-4">Pagina creada por Luis Cervantes y Adal Loya.</p>
             </div>
           </div>

@@ -13,24 +13,24 @@ function Form() {
     </blockquote>
              <form className="col s12">
                                         <div className="input-field col s12">
-                                          <input id="name" type="text" className="validate" data-length="15" maxlength="15"></input>
-                                          <label for="name">Nombre</label>
+                                          <input id="name" type="text" className="validate" data-length="15" maxLength="15"></input>
+                                          <label htmlFor="name">Nombre</label>
                                         </div>
-                                        <div class="input-field col s12">
-                                          <input id="phone" type="tel" className="validate" data-length="10" maxlength="10"></input>
-                                          <label for="phone">WhatsApp 10 Numeros</label>
+                                        <div className="input-field col s12">
+                                          <input id="phone" type="tel" className="validate" data-length="10" maxLength="10"></input>
+                                          <label htmlFor="phone">WhatsApp 10 Numeros</label>
                                         </div>
                              <div className="input-field col s12">
-                                <input id="email" type="email" data-length="30" maxlength="30"></input>
-                                <label for="email">Email</label>
+                                <input id="email" type="email" data-length="30" maxLength="30"></input>
+                                <label htmlFor="email">Email</label>
                              </div>
                              <div className="input-field col s12">
-                                <input id="item" type="text" data-length="30" maxlength="30"></input>
-                                <label for="item">¿Qué quieres vender?</label>
+                                <input id="item" type="text" data-length="30" maxLength="30"></input>
+                                <label htmlFor="item">¿Qué quieres vender?</label>
                              </div>
                             <div className="input-field col s12">
-                              <textarea id="description" className="materialize-textarea" data-length="240" maxlength="240"></textarea>
-                              <label for="description">¿Que nos cuentas de lo que vendes?</label>
+                              <textarea id="description" className="materialize-textarea" data-length="240" maxLength="240"></textarea>
+                              <label htmlFor="description">¿Que nos cuentas de lo que vendes?</label>
                             </div>
                                <div className="input-field col s12">
                                     <select id="category">
@@ -55,8 +55,8 @@ function Form() {
                                     <label>¿Donde lo vendes?</label>
                              </div>
                                         <div className="input-field col s12">
-                                          <textarea id="price" type="number" class="materialize-textarea" data-length="10" maxlength="10"></textarea>
-                                          <label for="price">Precio</label>
+                                          <textarea id="price" type="number" className="materialize-textarea" data-length="10" maxLength="10"></textarea>
+                                          <label htmlFor="price">Precio</label>
                                         </div>
 
                                         <div className="col s12">

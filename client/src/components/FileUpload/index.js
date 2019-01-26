@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom'
 import * as firebase from 'firebase'
 
 firebase.initializeApp({
-  apiKey: 'AIzaS*******************',
-  authDomain: '*****',
-  databaseURL: '******',
-  storageBucket: '******',
-  messagingSenderId: '**********'
+    apiKey: "AIzaSyC9sJ8GtsGTdC_wZ__CqZX29G03Gah-ns8",
+    authDomain: "alvonline.firebaseapp.com",
+    databaseURL: "https://alvonline.firebaseio.com",
+    projectId: "alvonline",
+    storageBucket: "alvonline.appspot.com",
+    messagingSenderId: "858746985142"
 })
 
 class FileUpload extends Component {
@@ -54,3 +55,4 @@ class FileUpload extends Component {
 }
 
 ReactDOM.render(<FileUpload />, document.getElementById('root'))
+export default FileUpload;
