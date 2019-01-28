@@ -228,6 +228,13 @@ $("#new-register").addClass("disabled")
     });
    // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
    database.ref("ads").on("child_added", function(childSnapshot) {
+    // full list of items to the well
+    // Handle the errors
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  });
+
+  database.ref("ads").on("child_added", function(childSnapshot) {
 
     $("#number").html(childSnapshot.val().id+ " "+ "Articulos en venta");
     // full list of items to the well
@@ -248,16 +255,15 @@ $("#new-register").addClass("disabled")
         "</div>"
     
 );  
+$("#userads").append(
+"<li class= 'collection-item avatar'>"+
+    "<div class='collapsible-header'>"+"<i class='material-icons'>"+"<img class='circle' src="+"'"+childSnapshot.val().category+"'"+"></img>"+"</i>"+childSnapshot.val().item+"</div>"+
+    "<div class='collapsible-body'>"+"<span>"+childSnapshot.val().description+"</span>"+"</div>"+
+ "</li>");  
+
     // Handle the errors
   }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
   });
- ///console log users
- database.ref("users").on("value", function(childSnapshot) {
-     console.log(childSnapshot.val())
-
-}, function(errorObject) {
-  console.log("Errors handled: " + errorObject.code);
-});
 
 });
