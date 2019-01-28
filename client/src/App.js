@@ -1,6 +1,4 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import axios from "axios";
+import React from "react";
 //import Pagination from "react-js-pagination";
 //import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //import Items from "./pages/items";
@@ -13,11 +11,13 @@ import Form from "./components/Form";
 import Registration from "./components/Registration";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
+import Myads from "./components/Myads";
 
 function App() {
   return (
     <div>
       <Nav/>
+      <Myads/>
       <Card title="Super TV"/>
       <Form/>
       <Registration/>

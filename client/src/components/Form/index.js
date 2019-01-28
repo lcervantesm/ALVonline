@@ -12,18 +12,6 @@ function Form() {
       <h4>Publica tu anuncío</h4>
     </blockquote>
              <form className="col s12">
-                                        <div className="input-field col s12">
-                                          <input id="name" type="text" className="validate" data-length="15" maxLength="15"></input>
-                                          <label htmlFor="name">Nombre</label>
-                                        </div>
-                                        <div className="input-field col s12">
-                                          <input id="phone" type="tel" className="validate" data-length="10" maxLength="10"></input>
-                                          <label htmlFor="phone">WhatsApp 10 Numeros</label>
-                                        </div>
-                             <div className="input-field col s12">
-                                <input id="email" type="email" data-length="30" maxLength="30"></input>
-                                <label htmlFor="email">Email</label>
-                             </div>
                              <div className="input-field col s12">
                                 <input id="item" type="text" data-length="30" maxLength="30"></input>
                                 <label htmlFor="item">¿Qué quieres vender?</label>
