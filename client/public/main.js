@@ -1,5 +1,7 @@
 $(document).ready(function() {
     $("#uploadButton").hide();
+    $("#exito").hide();
+    $("#filerurl").hide();
   // Initialize Firebase-----------------------------------------------------------------
   var config = {
     apiKey: "AIzaSyC9sJ8GtsGTdC_wZ__CqZX29G03Gah-ns8",
@@ -132,7 +134,7 @@ $("#location").addClass();
 $("#email").val("");
 $("#fileurl").html("");
 // Add to the toDoCount
-$("#add-to-do").addClass("disabled")
+$("#add-to-do").addClass("disabled");
 
       
     });
@@ -257,6 +259,8 @@ $("#new-register").addClass("disabled")
           console.log('File available at', downloadURL);
           itemimage= downloadURL;
           $("#fileurl").html(itemimage);
+          $("#fileurl").addClass("hide");
+          $("#exito").show();
         
         });
       });
