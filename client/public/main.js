@@ -135,7 +135,8 @@ $("#email").val("");
 $("#fileurl").html("");
 // Add to the toDoCount
 $("#add-to-do").addClass("disabled");
-
+$("#exito").hide();
+$("#uploadButton").hide();
       
     });
 
