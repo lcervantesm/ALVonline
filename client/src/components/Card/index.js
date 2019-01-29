@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import Style from "./style.css";
 
 class Card extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
 
 render() {
 
@@ -14,10 +8,10 @@ render() {
 <div className="container">
   <div className="row">
      <div className="col s6 m6">
-       <a id="number" className="waves-effect waves-light btn-large hide-on-small-only">0 Articulos en venta</a>
+       <a href="hola" id="number" className="waves-effect waves-light btn-large hide-on-small-only">0 Articulos en venta</a>
      </div>
      <div className="col s6 m6">
-       <a id="number1" className="waves-effect waves-light btn-large watchers hide-on-small-only"></a>
+       <a href="hola" id="number1" className="waves-effect waves-light btn-large watchers hide-on-small-only">0 Personas comprando</a>
      </div>
   </div>
     <div id="to-dos" className="row"></div>

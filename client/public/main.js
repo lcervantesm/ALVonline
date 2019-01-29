@@ -13,8 +13,6 @@ $(document).ready(function() {
   var database = firebase.database();
 
   var toDoCount = 0;
-  var name= "";
-  var phone= "";
   var item= "";
   var description= "";
   var price= "";
@@ -56,7 +54,7 @@ toDoCount= snap.numChildren();
 });
 
  // ON BUTTON SELECT FORM-----------------------------------------------------------------
- $('input#name, input#phone, input#item, input#price, input#description').characterCounter();
+ $('input#item, input#price, input#description').characterCounter();
  $('input#username, input#userphone, input#useremail, input#userlocation, input#userpassword').characterCounter();
 
  document.addEventListener('DOMContentLoaded', function() {
@@ -69,13 +67,12 @@ toDoCount= snap.numChildren();
     var instances = M.Modal.init(elems, options);
   });
     $('.modal').modal();
+    $('.collapsible').collapsible();
     validate();
-    $('#name, #phone, #description, #category, #location, #price, #item').change(validate);
+    $('#description, #category, #location, #price, #item').change(validate);
 
 function validate(){
-    if ($('#name').val().length   >   0   &&
-        $('#phone').val().length  >   0   &&
-        $('#description').val().length  >   0   &&
+    if ($('#description').val().length  >   0   &&
         $('#category').val().length  >   0   &&
         $('#location').val().length  >   0   &&
         $('#price').val().length  >   0   &&
@@ -94,9 +91,9 @@ $("#add-to-do").on("click", function(event) {
 
       toDoCount++;
 
-      var name= $("#name").val().trim();
-      var phone= $("#phone").val().trim();
-      var email= $("#email").val().trim();
+      var name= userloginname;
+      var phone= userloginphone;
+      var email= userloginemail;
       var item= $("#item").val().trim();
       var description= $("#description").val().trim();
       var price= $("#price").val().trim();
@@ -147,8 +144,6 @@ $("#new-register").on("click", function(event) {
     var useraviso= $('#aviso').val();
     var userid= 1;
 
-    console.log("hey");
-
     database.ref("users").push({
      username: username,
       userphone: userphone,
@@ -174,24 +169,79 @@ $("#new-register").addClass("disabled")
 
     
   });
+  $("#loginbutton").on("click", function(event) {
+    event.preventDefault();
+
+
+    var emaillogin= $("#emaillogin").val().trim();
+    var contraseñalogin= $("#contraseñalogin").val().trim();
+
+
+    database.ref('users').orderByChild("useremail").equalTo(emaillogin).on("value", function(snapshot) {
+        snapshot.forEach(function(data) {
+          userlogin= data.val().userpassword;
+          userloginname= data.val().username;
+          userloginphone= data.val().userphone;
+          userloginlocation =data.val().userlocation;
+          userloginemail =data.val().useremail;
+
+        });
+
+        if (userlogin=contraseñalogin) {
+            
+            $("#loginmodal").html("Haz inciado sesion"+" "+ userloginname + "<hr>"+"Puedes publicar con el icono rojo y el signo de mas");
+            $('#posticon').removeClass("hide");
+            $("#nombre").html(userloginname);
+            $("#phone").html(userloginphone);
+            $("#email").html(userloginemail);
+            $('#usericon').addClass("hide");
+            $('#viewicon').removeClass("hide");
+
+            database.ref('ads').orderByChild("email").equalTo(userloginemail).on("value", function(snapshot) {
+                snapshot.forEach(function(data) {
+                    $("#userads").html(
+                "<li>"+
+                  "<div className='collapsible-header'>"+"<i className='material-icons'>filter_drama</i>"+snapshot.val().item+"</div>"+
+                  "<div className='collapsible-body'><span>"+snapshot.val().description+"</span></div>"+
+               "</li>"
+              );  
+                });
+            
+            });
+
+          } else {
+            console.log("The email or password is incorrect");
+            $("#status").html("The email or password is incorrect, please try again");
+          }
+    });
+
+  });
+  
 
 //DELETE------------------------------------------------------------------------------------------------------------------------ 
     // When a user clicks a check box then delete the specific content
     // (NOTE: Pay attention to the unusual syntax here for the click event.
     // Because we are creating click events on "dynamic" content, we can't just use the usual "on" "click" syntax.)
-    $(document.body).on("click", ".checkbox", function() {
+    $(document.body).on("click", ".checkbox", function() { 
       var toDoNumber = $(this).attr("data-to-do");
       $("#item-" + toDoNumber).remove();
     });
    // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
    database.ref("ads").on("child_added", function(childSnapshot) {
+    // full list of items to the well
+    // Handle the errors
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  });
+
+  database.ref("ads").on("child_added", function(childSnapshot) {
 
     $("#number").html(childSnapshot.val().id+ " "+ "Articulos en venta");
     // full list of items to the well
     $("#to-dos").append(
-        "<div id="+childSnapshot.val().id+" " + "class='card col s12 m4 l4 xl3 hoverable card small'>"+
+        "<div id="+childSnapshot.val().id+" " + "class='card col s12 m4 l4 xl3 hoverable card'>"+
         "<div class='card-image waves-effect waves-block waves-light'>" +
-        "<img class='activator center-align' src="+"'"+childSnapshot.val().category+"'"+"></img>"+
+        "<img class='activator' src="+"'"+childSnapshot.val().category+"'"+"></img>"+
         "</div>"+
         "<div class='card-content'>"+
         "<span class='card-title activator grey-text text-darken-4'flow-text>"+childSnapshot.val().item+"</span><i class='material-icons right'>more_vert</i>"+
@@ -205,16 +255,15 @@ $("#new-register").addClass("disabled")
         "</div>"
     
 );  
+$("#userads").append(
+"<li class= 'collection-item avatar'>"+
+    "<div class='collapsible-header'>"+"<i class='material-icons'>"+"<img class='circle' src="+"'"+childSnapshot.val().category+"'"+"></img>"+"</i>"+childSnapshot.val().item+"</div>"+
+    "<div class='collapsible-body'>"+"<span>"+childSnapshot.val().description+"</span>"+"</div>"+
+ "</li>");  
+
     // Handle the errors
   }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
   });
- ///console log users
- database.ref("users").on("value", function(childSnapshot) {
-     console.log(childSnapshot.val())
-
-}, function(errorObject) {
-  console.log("Errors handled: " + errorObject.code);
-});
 
 });
