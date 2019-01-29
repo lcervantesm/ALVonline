@@ -23,11 +23,11 @@ function Form() {
                                <div className="input-field col s12">
                                     <select id="category">
                                       <option value="" defaultValue>Selecciona una categoria</option>
-                                      <option value="../../IMAGES/videojuegos.png">Videojuegos</option>
-                                      <option value="../../IMAGES/tecnologia.png">Tecnologia</option>
-                                      <option value="../../IMAGES/hogar.png">Hogar</option>
-                                      <option value="../../IMAGES/servicios.png">Servicios</option>
-                                      <option value="../../IMAGES/otros.png">Otros</option>
+                                      <option value="Videojuegos">Videojuegos</option>
+                                      <option value="Tecnologia/tecnologia.png">Tecnologia</option>
+                                      <option value="Hogar">Hogar</option>
+                                      <option value="Servicios">Servicios</option>
+                                      <option value="Otros">Otros</option>
                                     </select>
                                     <label>¿Qué tipo de venta es?</label>
                              </div>
@@ -46,7 +46,15 @@ function Form() {
                                           <textarea id="price" type="number" className="materialize-textarea" data-length="10" maxLength="10"></textarea>
                                           <label htmlFor="price">Precio</label>
                                         </div>
-
+<div>
+<h2>UPLOAD IMAGE</h2>
+<label class="upload-group">
+Upload file
+<input type="file" class="upload-group" id="file"></input>
+</label>
+<button type="button" class="btn btn-primary" id="uploadButton" >Cargar</button>
+<h6 id="fileurl"></h6>
+</div>
                                         <div className="col s12">
                                                 <button id="add-to-do" className="modal-close btn waves-effect waves-light summit disabled" type="submit" name="action">Publicalo
                                                         <i className="material-icons right">send</i>

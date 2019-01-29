@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $("#uploadButton").hide();
   // Initialize Firebase-----------------------------------------------------------------
   var config = {
     apiKey: "AIzaSyC9sJ8GtsGTdC_wZ__CqZX29G03Gah-ns8",
@@ -18,13 +19,14 @@ $(document).ready(function() {
   var price= "";
   var category= "";
   var location= "";
+  var selectedFile= " ";
 
   var d = new Date();
 
   var month = d.getMonth()+1;
   var day = d.getDate();
   var time=d.getTime();
-  
+
   var output = (day<10 ? '0' : '') + day + '/' +
       (month<10 ? '0' : '') + month + '/' +
       d.getFullYear();
@@ -99,6 +101,8 @@ $("#add-to-do").on("click", function(event) {
       var price= $("#price").val().trim();
       var category= $('select#category').val();
       var location= $('select#location').val();
+      var itemimage= null;
+      var imagecard= $("#fileurl").html();
 
       database.ref("ads").push({
         name: name,
@@ -111,6 +115,7 @@ $("#add-to-do").on("click", function(event) {
         location:location,
         dateposted:output,
         id:toDoCount,
+        image: imagecard,
         dateAdded: firebase.database.ServerValue.TIMESTAMP,
 
       });
@@ -125,6 +130,7 @@ $("#price").val("");
 $('#category').addClass();
 $("#location").addClass();
 $("#email").val("");
+$("#fileurl").html("");
 // Add to the toDoCount
 $("#add-to-do").addClass("disabled")
 
@@ -143,6 +149,7 @@ $("#new-register").on("click", function(event) {
     var userpassword= $('#userpassword').val();
     var useraviso= $('#aviso').val();
     var userid= 1;
+   
 
     database.ref("users").push({
      username: username,
@@ -217,7 +224,43 @@ $("#new-register").addClass("disabled")
 
   });
   
+  $("#file").on("change",function(event){
+    selectedFile= event.target.files[0];
+    $("#uploadButton").show();
 
+  });
+
+  $("#uploadButton").on("click", function uploadFile() {
+    var filename = selectedFile.name;
+    var storageRef = firebase.storage().ref('/itemimages/'+ filename);
+     var uploadTask= storageRef.put(selectedFile);
+
+     uploadTask.on('state_changed', function(snapshot){
+        // Observe state change events such as progress, pause, and resume
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is ' + progress + '% done');
+        switch (snapshot.state) {
+          case firebase.storage.TaskState.PAUSED: // or 'paused'
+            console.log('Upload is paused');
+            break;
+          case firebase.storage.TaskState.RUNNING: // or 'running'
+            console.log('Upload is running');
+            break;
+        }
+      }, function(error) {
+        // Handle unsuccessful uploads
+      }, function() {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+          console.log('File available at', downloadURL);
+          itemimage= downloadURL;
+          $("#fileurl").html(itemimage);
+        
+        });
+      });
+        });
 //DELETE------------------------------------------------------------------------------------------------------------------------ 
     // When a user clicks a check box then delete the specific content
     // (NOTE: Pay attention to the unusual syntax here for the click event.
@@ -241,7 +284,7 @@ $("#new-register").addClass("disabled")
     $("#to-dos").append(
         "<div id="+childSnapshot.val().id+" " + "class='card col s12 m4 l4 xl3 hoverable card'>"+
         "<div class='card-image waves-effect waves-block waves-light'>" +
-        "<img class='activator' src="+"'"+childSnapshot.val().category+"'"+"></img>"+
+        "<img class='activator cardimage' src="+"'"+childSnapshot.val().image+"'"+"></img>"+
         "</div>"+
         "<div class='card-content'>"+
         "<span class='card-title activator grey-text text-darken-4'flow-text>"+childSnapshot.val().item+"</span><i class='material-icons right'>more_vert</i>"+
