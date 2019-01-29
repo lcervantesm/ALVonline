@@ -20,7 +20,6 @@ $(document).ready(function() {
   var price= "";
   var category= "";
   var location= "";
-
   var d = new Date();
 
   var month = d.getMonth()+1;
@@ -142,7 +141,7 @@ $("#new-register").on("click", function(event) {
     console.log("hey");
 
     database.ref("users").push({
-     username: username,
+      username: username,
       userphone: userphone,
       useremail: useremail,
       userlocation:userlocation,
@@ -166,6 +165,11 @@ $("#new-register").addClass("disabled")
     
   });
 
+$("#login").on("click", function(event) {
+  var users = firebase.database().ref("users");
+  console.log(users.path.pieces_[0]);
+
+  });
 //DELETE------------------------------------------------------------------------------------------------------------------------ 
     // When a user clicks a check box then delete the specific content
     // (NOTE: Pay attention to the unusual syntax here for the click event.
@@ -176,7 +180,6 @@ $("#new-register").addClass("disabled")
     });
    // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
    database.ref("ads").on("child_added", function(childSnapshot) {
-
     $("#number").html(childSnapshot.val().id+ " "+ "Articulos en venta");
     // full list of items to the well
     $("#to-dos").append(
@@ -203,6 +206,10 @@ $("#new-register").addClass("disabled")
     console.log("Errors handled: " + errorObject.code);
   });
 
-
-
+ ///console log users
+ database.ref("users").on("value", function(childSnapshot) {
+  console.log(childSnapshot.val())
+}, function(errorObject) {
+console.log("Errors handled: " + errorObject.code);
+});
 });
