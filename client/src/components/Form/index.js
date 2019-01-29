@@ -46,15 +46,18 @@ function Form() {
                                           <textarea id="price" type="number" className="materialize-textarea" data-length="10" maxLength="10"></textarea>
                                           <label htmlFor="price">Precio</label>
                                         </div>
-<div>
-<h2>UPLOAD IMAGE</h2>
-<label class="upload-group">
-Upload file
-<input type="file" class="upload-group" id="file"></input>
-</label>
-<button type="button" class="btn btn-primary" id="uploadButton" >Cargar</button>
-<h6 id="fileurl"></h6>
-</div>
+                                      <div className= "col s12">
+                                      <blockquote>
+                                        <h6>Agrega una imagen del producto que vas a vender, primero selecciona el archio y luego da click en en agregar para adjuntarla al anuncio</h6>
+                                       </blockquote>
+                                     <label class="upload-group waves-effect waves-light btn">
+                                            seleccionar imagen
+                                      <input type="file" class="upload-group" id="file"></input>
+                                        </label>
+                                      <button type="button" class="btn btn-primary" id="uploadButton" >Agregar imagen</button>
+                                      <blockquote id="exito" class="exito"><h6>¡La carga fue exitosa ya puedes publicar tu anuncio! </h6> </blockquote>
+                                       <h6 id="fileurl"></h6>
+                                       </div>
                                         <div className="col s12">
                                                 <button id="add-to-do" className="modal-close btn waves-effect waves-light summit disabled" type="submit" name="action">Publicalo
                                                         <i className="material-icons right">send</i>
