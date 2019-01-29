@@ -60,9 +60,31 @@ margin-top: 15px;
   color: white;
   font-weight: bold;
 }
+.cardimage{
+  object-fit: cover;
+  height: 200px;
+}
+.card-image{
+  height: 200px;
+}
+label.upload-group{
+width: 80px;
+height: 40px;
+color: white;
+padding: 5 5 5 5;
+text-align: center;
+background-color: blue;
+}
+input#file{
+width:0.1px;
+height: 0.1px;
+position: absolute;
+z-index: -1;
 
+}
 .card{
   margin: 10px;
+  height: 350px;
 }
 @media (max-width: 990px) {
   .resizeimg {
