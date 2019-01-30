@@ -103,6 +103,7 @@ $("#add-to-do").on("click", function(event) {
       var price= $("#price").val().trim();
       var category= $('select#category').val();
       var location= $('select#location').val();
+      var status=$('select#status').val();
       var itemimage= null;
       var imagecard= $("#fileurl").html();
 
@@ -118,6 +119,7 @@ $("#add-to-do").on("click", function(event) {
         dateposted:output,
         id:toDoCount,
         image: imagecard,
+        status:status,
         dateAdded: firebase.database.ServerValue.TIMESTAMP,
 
       });
@@ -292,15 +294,32 @@ $("#new-register").addClass("disabled")
         "<img class='activator cardimage' src="+"'"+childSnapshot.val().image+"'"+"></img>"+
         "</div>"+
         "<div class='card-content'>"+
-        "<span class='activator titulo'>"+childSnapshot.val().item+"</span><i class='material-icons right'>more_vert</i>"+
-        "<p><a href="+"'"+childSnapshot.val().phone+"'"+ "class='waves-effect waves-light btn-small contactar flow-text'>Contactar</a></p>"+
+        "<span class='activator titulo'>"+childSnapshot.val().item+"</span>"+
         "</div>"+
 
-
+        "<div class='card-details'>"+
+         "<p>"+childSnapshot.val().location+"</p>"+
+         "<p>"+childSnapshot.val().status+"</p>"+
+         "<p>"+childSnapshot.val().price+"</p>"+
+         "</div>"+
+        "<div class='modal-footer'>"+
+        "<a>"+childSnapshot.val().dateposted+"</a>"+
+        "</div>"+
+        
         "<div class='card-reveal'>"+
-        "<span class='card-title grey-text text-darken-4 flow-text'>"+childSnapshot.val().item+"<i class='material-icons right'>close</i></span>"+
-        "<p class='flow-text'>"+childSnapshot.val().description+"</p>"+
-        "<p class='flow-text'>$ "+ childSnapshot.val().price +" MXN - "+childSnapshot.val().location+" - ID:"+childSnapshot.val().id+"</p>"+
+        "<span class='card-title titulo'>"+childSnapshot.val().item+"</span>"+
+        "<hr></hr>"+
+        "<p >"+childSnapshot.val().description+"</p>"+
+        "<hr></hr>"+
+        "<p>"+childSnapshot.val().location+"</p>"+
+        "<p>"+childSnapshot.val().status+"</p>"+
+        "<p>$ "+ childSnapshot.val().price +" MXN"+"</p>"+
+        "<div class='modal-footer'>"+
+        "<p>"+childSnapshot.val().dateposted+"</p>"+"<hr></hr>"+
+
+        "<a class='btn-floating btn-large waves-effect waves-light green' href='"+childSnapshot.val().phone+"'><i class='material-icons'>call</i></a>"+
+        "</div>"+
+        "</div>"+
         "</div>"+
         "</div>"
     

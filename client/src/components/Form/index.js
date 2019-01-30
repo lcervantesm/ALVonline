@@ -42,6 +42,14 @@ function Form() {
                                     </select>
                                     <label>¿Donde lo vendes?</label>
                              </div>
+                             <div className="input-field col s12">
+                                    <select id="status">
+                                      <option value="" defaultValue>Selecciona la condicion</option>
+                                      <option value="Nuevo">Nuevo</option>
+                                      <option value="Usado">Usado</option>
+                                    </select>
+                                    <label>¿En que condicion está?</label>
+                             </div>
                                         <div className="input-field col s12">
                                           <textarea id="price" type="number" className="materialize-textarea" data-length="10" maxLength="10"></textarea>
                                           <label htmlFor="price">Precio</label>
