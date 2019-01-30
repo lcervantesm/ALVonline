@@ -10,7 +10,7 @@ function Registration() {
              <blockquote>
       <h4>Inicia Sesión</h4>
     </blockquote>
-                                       <div className="row">
+                                      <div className="row">
                                         <div className="input-field col s12">
                                           <input id="emaillogin" type="text" className="validate" data-length="50" maxLength="50"></input>
                                           <label htmlFor="emaillogin">Email</label>
@@ -39,9 +39,8 @@ function Registration() {
                                           </div>
                                           </div>
             </div>
-            </div>
-            </div>
-            
+    </div>
+</div>
     );
 } 
 
