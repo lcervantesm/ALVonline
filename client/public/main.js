@@ -2,6 +2,7 @@ $(document).ready(function() {
     $("#uploadButton").hide();
     $("#exito").hide();
     $("#filerurl").hide();
+    $('.tap-target').tapTarget();
   // Initialize Firebase-----------------------------------------------------------------
   var config = {
     apiKey: "AIzaSyC9sJ8GtsGTdC_wZ__CqZX29G03Gah-ns8",
@@ -38,6 +39,7 @@ $(document).ready(function() {
 var connectionsRef = database.ref("/connections");
 var connectedRef = database.ref(".info/connected");
 var adnumber = database.ref("/ads");
+var registerusers =database.ref("/users");
 
 connectedRef.on("value", function(snap) {
   if (snap.val()) {
@@ -56,6 +58,11 @@ $("#number").text(snap.numChildren());
 $("#number").append(""+ " "+"Articulos en venta");
 toDoCount= snap.numChildren();
 });
+
+registerusers.on("value",function(snap){
+    $("#number2").text(snap.numChildren());
+    $("#number2").append(""+ " "+"Usuarios Registrados")
+})
 
  // ON BUTTON SELECT FORM-----------------------------------------------------------------
  $('input#item, input#price, input#description').characterCounter();
@@ -106,6 +113,7 @@ $("#add-to-do").on("click", function(event) {
       var status=$('select#status').val();
       var itemimage= null;
       var imagecard= $("#fileurl").html();
+      var consola= $('select#consola').val();
 
       database.ref("ads").push({
         name: name,
@@ -115,6 +123,7 @@ $("#add-to-do").on("click", function(event) {
         description: description,
         price: price,
         category: category,
+        consola:consola,
         location:location,
         dateposted:output,
         id:toDoCount,
@@ -293,31 +302,31 @@ $("#new-register").addClass("disabled")
         "<div class='card-image waves-effect waves-block waves-light'>" +
         "<img class='activator cardimage' src="+"'"+childSnapshot.val().image+"'"+"></img>"+
         "</div>"+
-        "<div class='card-content'>"+
+        "<div class='card-content "+childSnapshot.val().consola+"'>"+
         "<span class='activator titulo'>"+childSnapshot.val().item+"</span>"+
         "</div>"+
 
         "<div class='card-details'>"+
-         "<p>"+childSnapshot.val().location+"</p>"+
-         "<p>"+childSnapshot.val().status+"</p>"+
-         "<p>"+childSnapshot.val().price+"</p>"+
-         "</div>"+
-        "<div class='modal-footer'>"+
-        "<a>"+childSnapshot.val().dateposted+"</a>"+
+        "<p><i class='tiny material-icons'>videogame_asset</i> " +childSnapshot.val().category+" "+childSnapshot.val().consola+"</p>"+
+         "<p><i class='tiny material-icons'>place</i> "+childSnapshot.val().location+"</p>"+
+         "<p><i class='tiny material-icons'>class</i> "+childSnapshot.val().status+"</p>"+
+         "<p><i class='tiny material-icons'>monetization_on</i> "+childSnapshot.val().price+" MXN</p>"+
+         "<p><i class='tiny material-icons'>date_range</i> "+childSnapshot.val().dateposted+"</p>"
+         +"<hr></hr>"+
+         "</div>"+ 
+        "<div class='modal-footer center'>"+
+        "<a href=tel:'"+childSnapshot.val().phone+"´ class='waves-effect waves-light btn-small z-depth-1 contactar'><i class='material-icons tiny'>call</i></a>"+"<a href= mailto:'"+childSnapshot.val().email+"´ class='waves-effect waves-light btn-small z-depth-1 contactar2'><i class='material-icons tiny'>mail</i></a>"+
         "</div>"+
         
         "<div class='card-reveal'>"+
-        "<span class='card-title titulo'>"+childSnapshot.val().item+"</span>"+
+        "<span class='card-title titulo"+childSnapshot.val().consola+"'>"+childSnapshot.val().item+"</span>"+
+        "<p><i class='tiny material-icons'>videogame_asset</i> "+childSnapshot.val().consola+"</p>"+
         "<hr></hr>"+
-        "<p >"+childSnapshot.val().description+"</p>"+
+        "<p ><i class='tiny material-icons'>description</i> "+childSnapshot.val().description+"</p>"+
         "<hr></hr>"+
-        "<p>"+childSnapshot.val().location+"</p>"+
-        "<p>"+childSnapshot.val().status+"</p>"+
-        "<p>$ "+ childSnapshot.val().price +" MXN"+"</p>"+
-        "<div class='modal-footer'>"+
-        "<p>"+childSnapshot.val().dateposted+"</p>"+"<hr></hr>"+
-
-        "<a class='btn-floating btn-large waves-effect waves-light green' href='"+childSnapshot.val().phone+"'><i class='material-icons'>call</i></a>"+
+        "<img class='responsive-img' src='"+childSnapshot.val().image+"'>"+
+        "<hr></hr>"+
+        "<a href=tel:'"+childSnapshot.val().phone+"´ class='waves-effect waves-light btn-small z-depth-1 contactar'><i class='material-icons tiny'>call</i></a>"+"<a href= mailto:'"+childSnapshot.val().email+"´ class='waves-effect waves-light btn-small z-depth-1 contactar2'><i class='material-icons tiny'>mail</i></a>"+
         "</div>"+
         "</div>"+
         "</div>"+
