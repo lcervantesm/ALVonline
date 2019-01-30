@@ -48,7 +48,7 @@ function Form() {
                                         </div>
                                       <div className= "col s12">
                                       <blockquote>
-                                        <h6>Agrega una imagen del producto que vas a vender, primero selecciona el archio y luego da click en en agregar para adjuntarla al anuncio</h6>
+                                        <h6>Agrega una imagen del producto que vas a vender, primero selecciona el archivo y luego da click en en agregar para adjuntarla al anuncio</h6>
                                        </blockquote>
                                      <label class="upload-group waves-effect waves-light btn">
                                             seleccionar imagen
