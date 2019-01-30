@@ -12,18 +12,6 @@ function Form() {
       <h4>Publica tu anuncío</h4>
     </blockquote>
              <form className="col s12">
-                                        <div className="input-field col s12">
-                                          <input id="name" type="text" className="validate" data-length="15" maxLength="15"></input>
-                                          <label htmlFor="name">Nombre</label>
-                                        </div>
-                                        <div className="input-field col s12">
-                                          <input id="phone" type="tel" className="validate" data-length="10" maxLength="10"></input>
-                                          <label htmlFor="phone">WhatsApp 10 Numeros</label>
-                                        </div>
-                             <div className="input-field col s12">
-                                <input id="email" type="email" data-length="30" maxLength="30"></input>
-                                <label htmlFor="email">Email</label>
-                             </div>
                              <div className="input-field col s12">
                                 <input id="item" type="text" data-length="30" maxLength="30"></input>
                                 <label htmlFor="item">¿Qué quieres vender?</label>
@@ -35,11 +23,11 @@ function Form() {
                                <div className="input-field col s12">
                                     <select id="category">
                                       <option value="" defaultValue>Selecciona una categoria</option>
-                                      <option value="../../IMAGES/videojuegos.png">Videojuegos</option>
-                                      <option value="../../IMAGES/tecnologia.png">Tecnologia</option>
-                                      <option value="../../IMAGES/hogar.png">Hogar</option>
-                                      <option value="../../IMAGES/servicios.png">Servicios</option>
-                                      <option value="../../IMAGES/otros.png">Otros</option>
+                                      <option value="Videojuegos">Videojuegos</option>
+                                      <option value="Tecnologia">Tecnologia</option>
+                                      <option value="Hogar">Hogar</option>
+                                      <option value="Servicios">Servicios</option>
+                                      <option value="Otros">Otros</option>
                                     </select>
                                     <label>¿Qué tipo de venta es?</label>
                              </div>
@@ -58,7 +46,18 @@ function Form() {
                                           <textarea id="price" type="number" className="materialize-textarea" data-length="10" maxLength="10"></textarea>
                                           <label htmlFor="price">Precio</label>
                                         </div>
-
+                                      <div className= "col s12">
+                                      <blockquote>
+                                        <h6>Agrega una imagen del producto que vas a vender, primero selecciona el archivo y luego da click en en agregar para adjuntarla al anuncio</h6>
+                                       </blockquote>
+                                     <label class="upload-group waves-effect waves-light btn">
+                                            seleccionar imagen
+                                      <input type="file" class="upload-group" id="file"></input>
+                                        </label>
+                                      <button type="button" class="btn btn-primary" id="uploadButton" >Agregar imagen</button>
+                                      <blockquote id="exito" class="exito"><h6>¡La carga fue exitosa ya puedes publicar tu anuncio! </h6> </blockquote>
+                                       <h6 id="fileurl"></h6>
+                                       </div>
                                         <div className="col s12">
                                                 <button id="add-to-do" className="modal-close btn waves-effect waves-light summit disabled" type="submit" name="action">Publicalo
                                                         <i className="material-icons right">send</i>

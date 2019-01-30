@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import Style from "./style.css";
 
 class Card extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
 
 render() {
 
@@ -14,30 +8,28 @@ render() {
 <div className="container">
   <div className="row">
      <div className="col s6 m6">
-       <a id="number" className="waves-effect waves-light btn-large hide-on-small-only">0 Articulos en venta</a>
+       <a href="hola" id="number" className="waves-effect waves-light btn-large hide-on-small-only">0 Articulos en venta</a>
      </div>
      <div className="col s6 m6">
-       <a id="number1" className="waves-effect waves-light btn-large watchers hide-on-small-only"></a>
+       <a href="hola" id="number1" className="waves-effect waves-light btn-large watchers hide-on-small-only">0 Personas comprando</a>
      </div>
   </div>
-    <div id="to-dos" className="row"></div>
-        {/* <div className="card col s3 hoverable">
-        <div className="card-image waves-effect waves-block waves-light">
-        <img className="activator" alt="videojuegos" src="../../IMAGES/videojuegos.png"></img>
+    <div id="to-dos" className="row">
+    <div id="test"class='card col s12 m4 l4 xl3 hoverable card'>
+        <div class='card-image waves-effect waves-block waves-light'>
+        <img class='activator cardimage' src="https://firebasestorage.googleapis.com/v0/b/alvonline.appspot.com/o/itemimages%2Fmbp15touch-silver-select-201807.jpeg?alt=media&amp;token=3ee57d2f-f14c-4bf4-a164-f98f7870270b"></img>
         </div>
-        <div className="card-content">
-        <span className="card-title activator grey-text text-darken-4">{this.props.title}<i className="material-icons right">more_vert</i></span>
-        <p><a href="tel:PHONE" class="waves-effect waves-light btn-small contactar">Contactar</a></p>
+        <div class='card-content'>
+        <span class='activator titulo'>TELEVISOR PHILLIPS</span><i class='material-icons right'>more_vert</i>
+        <p><a href="6271231192" class='waves-effect waves-light btn-small contactar flow-text'>Contactar</a></p>
         </div>
-        <div className="card-reveal">
-        <span className="card-title grey-text text-darken-4">Television 27" Phillips<i className="material-icons right">close</i></span>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde placeat porro beatae dicta ex consequatur mollitia pariatur nihil excepturi libero esse omnis perferendis optio veniam cum incidunt, voluptas eaque molestias.</p>
-        <p>$ 7,000 MXN - CDMX - Electronicos</p>
+        <div class='card-reveal'>"+
+        <span class='card-title grey-text text-darken-4 flow-text'>TELEVISOR PHILLIPS<i class='material-icons right'>close</i></span>
+        <p class='flow-text'>TODO EN BUEN ESTADO</p>"+
+        <p class='flow-text'>7000 MXN - CDMX" - ID:01</p>
         </div>
-        </div> */}
-
-        
-        
+        </div>
+        </div>
 </div>
     );
 }
