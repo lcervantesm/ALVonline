@@ -20,13 +20,30 @@ render() {
         <img class='activator cardimage' src="https://firebasestorage.googleapis.com/v0/b/alvonline.appspot.com/o/itemimages%2Fmbp15touch-silver-select-201807.jpeg?alt=media&amp;token=3ee57d2f-f14c-4bf4-a164-f98f7870270b"></img>
         </div>
         <div class='card-content'>
-        <span class='activator titulo'>TELEVISOR PHILLIPS</span><i class='material-icons right'>more_vert</i>
-        <p><a href="6271231192" class='waves-effect waves-light btn-small contactar flow-text'>Contactar</a></p>
+        <span class='activator titulo'>TELEVISOR PHILLIPS</span> 
         </div>
-        <div class='card-reveal'>"+
-        <span class='card-title grey-text text-darken-4 flow-text'>TELEVISOR PHILLIPS<i class='material-icons right'>close</i></span>
-        <p class='flow-text'>TODO EN BUEN ESTADO</p>"+
-        <p class='flow-text'>7000 MXN - CDMX" - ID:01</p>
+
+        <div className="card-details">
+        <p>CDMX</p>
+        <p>Nuevo</p>
+        <p>$ 7,000 MXN</p>
+        <p></p>
+        </div>
+        <div class="modal-footer">
+      <a>23 de Junio 2019</a>
+       </div>
+
+        <div class='card-reveal '>
+        <span class='card-title titulo'>TELEVISOR PHILLIPS</span>
+        <hr></hr>
+        <p>Buen estado, funcionando al 100% con factura original</p>
+        <hr></hr>
+        <p>CDMX</p>
+        <p>Nuevo</p>
+        <p>$ 7,000 MXN</p>
+        <div class="modal-footer">
+        <a>23 de Junio 2019</a>
+        </div>
         </div>
         </div>
         </div>

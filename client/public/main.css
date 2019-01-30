@@ -50,7 +50,6 @@ margin-top: 15px;
   background-color: #fafafa;
   padding: 0;
   max-height: 70%;
-  width: 30%;
   margin: auto;
   overflow-y: auto;
   border-radius: 2px;
@@ -67,12 +66,26 @@ margin-top: 15px;
 .card-image{
   height: 200px;
 }
+
+.card-content{
+  padding: 0 !important;
+  color: white;
+  align-content: center;
+  background: rgb(28, 40, 212);
+  text-align: center;
+  border-radius: 50px;
+  margin-top: 5%;
+}
 input#file{
 width:0.1px;
 height: 0.1px;
 position: absolute;
 z-index: -1;
 
+}
+
+.titledetail{
+  font-weight: bold;
 }
 .exito{
   color: green;
@@ -81,17 +94,32 @@ z-index: -1;
 
   margin: 20px;
 }
+.card-details{
+  margin: 2%;
+}
+p{
+  margin: 0;
+}
 .card{
   margin: 10px;
   height: 350px;
+  width: 20% !important;
 }
 
 .titulo{
-font-size: 20px;
-color: green;
+font-size: 15px !important;
 display: inherit;
 margin-bottom: 0;
-font-weight: bolder;
+font-weight: bold;
+}
+.titulo2{
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.tarjetacont{
+font-size: 10px;
+
 }
 @media (max-width: 990px) {
   .resizeimg {
@@ -100,6 +128,10 @@ font-weight: bolder;
   .login {
     width: 100%;
     max-height: 100%;
+  }
+
+  .card{
+    width: 100% !important;
   }
 }
 

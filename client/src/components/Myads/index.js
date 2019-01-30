@@ -12,10 +12,6 @@ function Myads() {
     <div>
             <p>Aqui podras ver y administrar todos tus anuncios publicados</p>
 <ul className="collapsible popout collection" id="userads">
-<li>
-      <div class="collapsible-header"><i class="material-icons"></i>Titulo</div>
-      <div class="collapsible-body"><img src="/../../IMAGES/tecnologia.png" alt="" class="circle"></img><span>descripcion</span></div>
-    </li>
   </ul>
     </div>
           </div>
