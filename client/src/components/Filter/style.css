@@ -1,0 +1,38 @@
+#checkbox {
+    float: right;
+    position: fixed;
+    color: black;
+    margin-right: 5%;
+    background-color:lightseagreen;
+}
+
+.letra{
+    color: white;
+}
+
+.filter-div{
+    color:white;
+}
+
+/* I added a class with a corresponding color */
+.red:checked + label:before {
+    top: -4px;
+    left: -3px;
+    width: 12px;
+    height: 22px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid red; /* You need to change the colour here */
+    border-bottom: 2px solid red; /* And here */
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    -o-transform: rotate(40deg);
+    transform: rotate(40deg);
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    transform-origin: 100% 100%; 
+}

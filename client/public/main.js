@@ -316,4 +316,5 @@ $("#userads").prepend(
     console.log("Errors handled: " + errorObject.code);
   });
 
+
 });

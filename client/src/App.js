@@ -12,12 +12,14 @@ import Registration from "./components/Registration";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
 import Myads from "./components/Myads";
+import Filter from "./components/Filter";
 
 function App() {
   return (
     <div>
       <Nav/>
       <Myads/>
+      <Filter/>
       <Card title="Super TV"/>
       <Form/>
       <Registration/>
