@@ -24,7 +24,7 @@ function Form() {
                                     <select id="category">
                                       <option value="" defaultValue>Selecciona una categoria</option>
                                       <option value="Videojuegos">Videojuegos</option>
-                                      <option value="Tecnologia/tecnologia.png">Tecnologia</option>
+                                      <option value="Tecnologia">Tecnologia</option>
                                       <option value="Hogar">Hogar</option>
                                       <option value="Servicios">Servicios</option>
                                       <option value="Otros">Otros</option>

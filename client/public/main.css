@@ -85,6 +85,14 @@ z-index: -1;
   margin: 10px;
   height: 350px;
 }
+
+.titulo{
+font-size: 20px;
+color: green;
+display: inherit;
+margin-bottom: 0;
+font-weight: bolder;
+}
 @media (max-width: 990px) {
   .resizeimg {
     height: auto;
