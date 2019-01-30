@@ -286,15 +286,17 @@ $("#new-register").addClass("disabled")
 
     $("#number").html(childSnapshot.val().id+ " "+ "Articulos en venta");
     // full list of items to the well
-    $("#to-dos").append(
+    $("#to-dos").prepend(
         "<div id="+childSnapshot.val().id+" " + "class='card col s12 m4 l4 xl3 hoverable card'>"+
         "<div class='card-image waves-effect waves-block waves-light'>" +
         "<img class='activator cardimage' src="+"'"+childSnapshot.val().image+"'"+"></img>"+
         "</div>"+
         "<div class='card-content'>"+
-        "<span class='card-title activator grey-text text-darken-4'flow-text>"+childSnapshot.val().item+"</span><i class='material-icons right'>more_vert</i>"+
+        "<span class='activator titulo'>"+childSnapshot.val().item+"</span><i class='material-icons right'>more_vert</i>"+
         "<p><a href="+"'"+childSnapshot.val().phone+"'"+ "class='waves-effect waves-light btn-small contactar flow-text'>Contactar</a></p>"+
         "</div>"+
+
+
         "<div class='card-reveal'>"+
         "<span class='card-title grey-text text-darken-4 flow-text'>"+childSnapshot.val().item+"<i class='material-icons right'>close</i></span>"+
         "<p class='flow-text'>"+childSnapshot.val().description+"</p>"+
@@ -303,9 +305,9 @@ $("#new-register").addClass("disabled")
         "</div>"
     
 );  
-$("#userads").append(
+$("#userads").prepend(
 "<li class= 'collection-item avatar'>"+
-    "<div class='collapsible-header'>"+"<i class='material-icons'>"+"<img class='circle' src="+"'"+childSnapshot.val().category+"'"+"></img>"+"</i>"+childSnapshot.val().item+"</div>"+
+    "<div class='collapsible-header'>"+"<i class='material-icons'>"+"<img class='circle' src="+"'"+childSnapshot.val().image+"'"+"></img>"+"</i>"+childSnapshot.val().item+"</div>"+
     "<div class='collapsible-body'>"+"<span>"+childSnapshot.val().description+"</span>"+"</div>"+
  "</li>");  
 
