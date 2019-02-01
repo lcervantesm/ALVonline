@@ -292,6 +292,100 @@ $("#new-register").addClass("disabled")
   }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
   });
+//   Filters------------------------------------------------------------------------------------------------
+  $("#Consolas").on("click", function() { 
+    $("#to-dos").html("");
+    var ref = database.ref("ads");
+
+    ref.orderByChild("consola").on("child_added", function(snapshot) {
+        $("#to-dos").prepend(
+            "<div id="+snapshot.val().id+" " + "class='card col s12 m4 l4 xl3 hoverable card'>"+
+            "<div class='card-image waves-effect waves-block waves-light'>" +
+            "<img class='activator cardimage' src="+"'"+snapshot.val().image+"'"+"></img>"+
+            "</div>"+
+            "<div class='card-content "+snapshot.val().consola+"'>"+
+            "<span class='activator titulo'>"+snapshot.val().item+"</span>"+
+            "</div>"+
+    
+            "<div class='card-details'>"+
+            "<p><i class='tiny material-icons'>videogame_asset</i> " +snapshot.val().category+" "+snapshot.val().consola+"</p>"+
+             "<p><i class='tiny material-icons'>place</i> "+snapshot.val().location+"</p>"+
+             "<p><i class='tiny material-icons'>class</i> "+snapshot.val().status+"</p>"+
+             "<p><i class='tiny material-icons'>monetization_on</i> "+snapshot.val().price+" MXN</p>"+
+             "<p><i class='tiny material-icons'>date_range</i> "+snapshot.val().dateposted+"</p>"
+             +"<hr></hr>"+
+             "</div>"+ 
+            "<div class='modal-footer center'>"+
+            "<a href=tel:'"+snapshot.val().phone+"´ class='waves-effect waves-light btn-small z-depth-1 contactar'><i class='material-icons tiny'>call</i></a>"+"<a href= mailto:'"+snapshot.val().email+"´ class='waves-effect waves-light btn-small z-depth-1 contactar2'><i class='material-icons tiny'>mail</i></a>"+
+            "</div>"+
+            
+            "<div class='card-reveal'>"+
+            "<span class='card-title titulo"+snapshot.val().consola+"'>"+snapshot.val().item+"</span>"+
+            "<p><i class='tiny material-icons'>videogame_asset</i> "+snapshot.val().consola+"</p>"+
+            "<hr></hr>"+
+            "<p ><i class='tiny material-icons'>description</i> "+snapshot.val().description+"</p>"+
+            "<hr></hr>"+
+            "<img class='responsive-img' src='"+snapshot.val().image+"'>"+
+            "<hr></hr>"+
+            "<a href=tel:'"+snapshot.val().phone+"´ class='waves-effect waves-light btn-small z-depth-1 contactar'><i class='material-icons tiny'>call</i></a>"+"<a href= mailto:'"+snapshot.val().email+"´ class='waves-effect waves-light btn-small z-depth-1 contactar2'><i class='material-icons tiny'>mail</i></a>"+
+            "</div>"+
+            "</div>"+
+            "</div>"+
+            "</div>"    
+
+
+
+
+        );
+    });
+});
+
+$("#PS4").on("click", function() { 
+    $("#to-dos").html("");
+    var ref = database.ref("ads");
+
+    ref.orderByChild("consola").equalTo("PS4").on("child_added", function(snapshot) {
+        $("#to-dos").prepend(
+            "<div id="+snapshot.val().id+" " + "class='card col s12 m4 l4 xl3 hoverable card'>"+
+            "<div class='card-image waves-effect waves-block waves-light'>" +
+            "<img class='activator cardimage' src="+"'"+snapshot.val().image+"'"+"></img>"+
+            "</div>"+
+            "<div class='card-content "+snapshot.val().consola+"'>"+
+            "<span class='activator titulo'>"+snapshot.val().item+"</span>"+
+            "</div>"+
+    
+            "<div class='card-details'>"+
+            "<p><i class='tiny material-icons'>videogame_asset</i> " +snapshot.val().category+" "+snapshot.val().consola+"</p>"+
+             "<p><i class='tiny material-icons'>place</i> "+snapshot.val().location+"</p>"+
+             "<p><i class='tiny material-icons'>class</i> "+snapshot.val().status+"</p>"+
+             "<p><i class='tiny material-icons'>monetization_on</i> "+snapshot.val().price+" MXN</p>"+
+             "<p><i class='tiny material-icons'>date_range</i> "+snapshot.val().dateposted+"</p>"
+             +"<hr></hr>"+
+             "</div>"+ 
+            "<div class='modal-footer center'>"+
+            "<a href=tel:'"+snapshot.val().phone+"´ class='waves-effect waves-light btn-small z-depth-1 contactar'><i class='material-icons tiny'>call</i></a>"+"<a href= mailto:'"+snapshot.val().email+"´ class='waves-effect waves-light btn-small z-depth-1 contactar2'><i class='material-icons tiny'>mail</i></a>"+
+            "</div>"+
+            
+            "<div class='card-reveal'>"+
+            "<span class='card-title titulo"+snapshot.val().consola+"'>"+snapshot.val().item+"</span>"+
+            "<p><i class='tiny material-icons'>videogame_asset</i> "+snapshot.val().consola+"</p>"+
+            "<hr></hr>"+
+            "<p ><i class='tiny material-icons'>description</i> "+snapshot.val().description+"</p>"+
+            "<hr></hr>"+
+            "<img class='responsive-img' src='"+snapshot.val().image+"'>"+
+            "<hr></hr>"+
+            "<a href=tel:'"+snapshot.val().phone+"´ class='waves-effect waves-light btn-small z-depth-1 contactar'><i class='material-icons tiny'>call</i></a>"+"<a href= mailto:'"+snapshot.val().email+"´ class='waves-effect waves-light btn-small z-depth-1 contactar2'><i class='material-icons tiny'>mail</i></a>"+
+            "</div>"+
+            "</div>"+
+            "</div>"+
+            "</div>"    
+
+
+
+
+        );
+    });
+});
 
   database.ref("ads").on("child_added", function(childSnapshot) {
 
